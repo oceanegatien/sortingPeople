@@ -1,44 +1,33 @@
 $(document).ready(function(){
+$('#submitGroup').on('click', function() {
+	$('#numeroGroup').html("");
 
-	var classe = [groupeUn, groupeDeux, groupeTrois]
-	var g = ['1', '2', '3', '4', '5'];
-	var groupeUn = ["Florian", "Mouad","Raph", "Julien", "Elodie"];
+	var table = ['table 0', 'table 1', 'table 2', 'table 3', 'table 4'];
+	var groupe = ["Florian", "Mouad","Raph", "Julien", "Elodie", "Maxime", "Dimitri", "Romain", "Franck", "Oceane","Jordi", "Greg", "Morel", "Emilie", "Marco"];
+
+	var idTable=0;
+
+
+for (var j = 0; j < groupe.length; j++) {	
+	var hasard=Math.floor(Math.random()*(j+1));
+
+	var save=groupe[j];
+	groupe[j]=groupe[hasard];
+	groupe[hasard]=save;
+}
+
+
+for (var i = 0; i < groupe.length; i++) {
+	var nomPersonne = groupe[i];
+	$('#numeroGroup').append('<td>'+nomPersonne + " est table " +idTable+'<td>');
+	console.log('<td>'+nomPersonne + " est à la table " +idTable+'<td>');
 	
-	var groupeDeux = ["Jordi", "Greg", "Morel", "Emilie", "Marco"];
-
-	var groupeTrois = ["Maxime", "Dimitri", "Romain", "Franck", "Oceane"];
-
-for (var k = 0; k < classe.length; k++) {
-	console.log(classe[k]);
-	
-	
-$('#submitGroupOne').on('click', function() {
-	for (var i = 0; i < 5; i++) {
-		
-		var hasard=Math.floor(Math.random()*(i+1));
-
-		var sauve=g[i];
-		g[i]=g[hasard];
-		g[hasard]=sauve;
+	if (idTable >= 4) {
+		idTable=0;
+	}else{
+		idTable++;
 	}
-		$('#numeroGroupOne').append(g + " ");
-		console.log(g);
-
-
-
-	for (var j = 0; j < 5; j++) {
-		var classe= classe[k];
-		var hasardTwo=Math.floor(Math.random()*(j+1));
-
-		var save=classe[j];
-		classe=classe[hasardTwo];
-		classe[hasardTwo]=sauve;
-	}
-		console.log(classe);
-		
-});
-	
-
 
 }
+})
 });
