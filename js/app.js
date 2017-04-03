@@ -1,4 +1,8 @@
 $(document).ready(function(){
+	var resultat=[];
+	
+
+
 $('#submitGroup').on('click', function() {
 	$('#numeroGroup').html("");
 
@@ -21,6 +25,9 @@ for (var i = 0; i < groupe.length; i++) {
 	var nomPersonne = groupe[i];
 	$('#numeroGroup').append('<td>'+nomPersonne + " est table " +idTable+'<td>');
 	console.log('<td>'+nomPersonne + " est à la table " +idTable+'<td>');
+	var obj = {"prenom":groupe[i],"table": idTable};
+	resultat.push(obj);
+	console.log(obj);
 	
 	if (idTable >= 4) {
 		idTable=0;
@@ -29,5 +36,7 @@ for (var i = 0; i < groupe.length; i++) {
 	}
 
 }
+
+object.is(resultat["table"]);
 })
 });
